@@ -11,50 +11,45 @@ import org.springframework.samples.petclinic.model.NamedEntity;
 import java.time.LocalDate;
 
 
+@Entity
+@Table(name = "charity")
+public class Charity extends NamedEntity {
 
-	@Entity
-	@Table(name = "charity")
-	public class Charity extends NamedEntity {
-
-		@Column(name = "action_date")
-		@DateTimeFormat(pattern = "yyyy-MM-dd")
-		private LocalDate actionDate;
-
-
-		@Column(name = "name")
-		private String name;
-
-		@Column(name = "telephone")
-		@NotBlank
-		@Digits(fraction = 0, integer = 10)
-		private String telephone;
+	@Column(name = "action_date")
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
+	private LocalDate actionDate;
 
 
-		public String getTelephone() {
-			return this.telephone;
-		}
+	@Column(name = "name")
+	private String name;
 
-		public void setTelephone(String telephone) {
-			this.telephone = telephone;
-		}
+	@Column(name = "telephone")
+	@NotBlank
+	@Digits(fraction = 0, integer = 10)
+	private String telephone;
 
 
-		@Override
-		public String getName() {
-			return name;
-		}
+	public String getTelephone() {
+		return this.telephone;
+	}
 
-		@Override
-		public void setName(String name) {
-			this.name = name;
-		}
+	public void setTelephone(String telephone) {
+		this.telephone = telephone;
+	}
 
-		public void setActionDate(LocalDate birthDate) {
-			this.actionDate = birthDate;
-		}
 
-		public LocalDate getActionDate() {
-			return this.actionDate;
-		}
+	@Override
+	public String getName() { return name; }
+
+	@Override
+	public void setName(String name) { this.name = name; }
+
+	public LocalDate getActionDate() {
+		return this.actionDate;
+	}
+
+	public void setActionDate(LocalDate birthDate) {
+		this.actionDate = birthDate;
+	}
 
 }
